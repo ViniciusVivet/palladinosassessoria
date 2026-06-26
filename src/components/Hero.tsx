@@ -50,9 +50,9 @@ export function Hero({
           </div>
           <DecorativeDivider />
           <div className="grid gap-4 text-sm text-antique/60 sm:grid-cols-3">
-            <p>Posicionamento com direção comercial.</p>
-            <p>Campanhas conectadas à venda.</p>
-            <p>Suporte incluso em todos os planos.</p>
+            <p>Para PMEs que precisam sair do improviso digital.</p>
+            <p>Para negócios que querem vender sem depender só de indicação.</p>
+            <p>Para empresas que precisam alinhar marketing e atendimento.</p>
           </div>
         </div>
 

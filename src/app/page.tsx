@@ -12,52 +12,59 @@ import { ProblemCard } from "@/components/ProblemCard";
 import { ProcessStep } from "@/components/ProcessStep";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ServiceCard } from "@/components/ServiceCard";
-import { buildPlanWhatsAppLink, contact } from "@/config/contact";
+import { contact } from "@/config/contact";
 import { plans } from "@/data/plans";
 import { posts } from "@/data/posts";
 import { resultCases } from "@/data/results";
 
-const problems = [
-  ["Empresas que postam, mas não vendem", "Presença sem intenção comercial cria movimento, mas não necessariamente cria demanda."],
-  ["Anúncios que geram cliques, mas não faturamento", "Tráfego sem oferta, atendimento e acompanhamento vira custo difícil de defender."],
-  ["Conteúdo sem estratégia", "Publicações soltas enfraquecem a percepção da marca e confundem o cliente ideal."],
-  ["Falta de posicionamento", "Quando a empresa não ocupa um lugar claro, o mercado escolhe pelo menor preço."],
-  ["Leads que não viram conversa comercial", "Oportunidades se perdem quando não existe cadência, abordagem e direção."],
-  ["Negócios presos em ações soltas", "Sem método, cada campanha começa do zero e o crescimento fica instável."],
-  ["Empreendedores cansados de promessas", "O mercado aprendeu a desconfiar de discursos bonitos sem processo real por trás."],
+const bottlenecks = [
+  {
+    title: "A marca aparece, mas não ocupa posição",
+    description:
+      "O cliente vê a empresa, mas não entende por que escolher, quanto vale ou qual próximo passo tomar.",
+  },
+  {
+    title: "O anúncio gera interesse, mas o comercial perde ritmo",
+    description:
+      "Lead sem abordagem, resposta ou follow-up vira número bonito em relatório e dinheiro parado no caminho.",
+  },
+  {
+    title: "O conteúdo existe, mas não constrói demanda",
+    description:
+      "Post solto mantém o perfil ativo, mas não cria autoridade, desejo e confiança para uma conversa de venda.",
+  },
+  {
+    title: "Cada ação começa do zero",
+    description:
+      "Sem método, a empresa troca campanha, texto e promessa toda semana, mas não constrói um sistema de crescimento.",
+  },
+];
+
+const operatingPrinciples = [
+  {
+    title: "Clareza antes de volume",
+    description:
+      "Antes de publicar ou anunciar mais, a Palladinos organiza mensagem, oferta, canais e caminho comercial.",
+  },
+  {
+    title: "Campanha com destino",
+    description:
+      "Tráfego e conteúdo são pensados para levar o cliente a uma conversa possível, não só a uma métrica bonita.",
+  },
+  {
+    title: "Suporte depois do interesse",
+    description:
+      "Todo plano inclui orientação comercial para melhorar resposta, abordagem, proposta e acompanhamento.",
+  },
 ];
 
 const process = [
-  ["Diagnóstico", "Leitura do momento atual, canais, oferta, pontos de perda e oportunidades."],
-  ["Posicionamento", "Ajuste da mensagem para tornar valor, público e próximo passo mais claros."],
-  ["Estratégia", "Definição de movimentos, campanhas e prioridade conforme maturidade do negócio."],
-  ["Execução", "Criação, publicação, campanha e organização dos canais de conversão."],
-  ["Otimização", "Acompanhamento de sinais, ajustes e melhoria contínua das ações."],
+  ["Diagnóstico", "Leitura dos canais, oferta, comunicação, gargalos e oportunidades comerciais."],
+  ["Posicionamento", "Ajuste da mensagem para deixar valor, público e próximo passo mais evidentes."],
+  ["Estratégia", "Definição do plano de ação conforme maturidade, urgência e capacidade de execução."],
+  ["Execução", "Organização de canais, conteúdo, campanha e pontos de conversão."],
+  ["Otimização", "Acompanhamento dos sinais do mercado e melhoria contínua das ações."],
   ["Suporte comercial", "Apoio para transformar interesse em conversa, proposta e venda."],
-];
-
-const productVisuals = [
-  {
-    planName: "Posicionamento",
-    title: "Posicionamento Digital",
-    image: "/images/produto-posicionamento-digital.png",
-    alt: "Arte comercial do plano Posicionamento Digital da Palladinos, com descrição e valor de R$ 500.",
-    cta: "Quero posicionar minha marca",
-  },
-  {
-    planName: "Tráfego Pago",
-    title: "Tráfego Pago",
-    image: "/images/produto-trafego-pago.png",
-    alt: "Arte comercial do plano Tráfego Pago da Palladinos, com descrição e valor de R$ 1.500.",
-    cta: "Quero campanhas pagas",
-  },
-  {
-    planName: "Social Media",
-    title: "Social Media",
-    image: "/images/produto-social-media.png",
-    alt: "Arte comercial do plano Social Media da Palladinos, com descrição e valor de R$ 1.500.",
-    cta: "Quero fortalecer minhas redes",
-  },
 ];
 
 export default function Home() {
@@ -68,86 +75,83 @@ export default function Home() {
       <Hero
         image
         title="Transforme atenção em faturamento com estratégia, posicionamento e campanhas que vendem."
-        subtitle="A Palladinos une marketing digital, campanhas orgânicas, tráfego pago e assessoria comercial para ajudar pequenos e médios negócios a crescerem com método, clareza e direção."
+        subtitle="A Palladinos trabalha onde muitos projetos quebram: entre a visibilidade e a venda. Posicionamos a marca, criamos demanda e acompanhamos o caminho comercial para pequenos e médios negócios crescerem com mais direção."
         secondaryCta="Ver planos"
         secondaryHref="/#planos"
       />
 
-      <section className="section-pad relative isolate overflow-hidden border-y border-sand/10 bg-[#171717]" id="sobre">
+      <section
+        className="section-pad relative isolate overflow-hidden border-y border-sand/10 bg-[#171717]"
+        id="sobre"
+      >
         <Image
           src="/images/background-tempos-antigos.jpeg"
           alt="Paisagem antiga com castelo ao fundo, usada como atmosfera institucional da Palladinos."
           fill
           sizes="100vw"
-          className="-z-20 object-cover opacity-[0.38]"
+          className="-z-20 object-cover opacity-[0.42]"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-charcoal/88 via-charcoal/82 to-charcoal/94" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-charcoal/92 via-charcoal/84 to-charcoal/96" />
         <Container>
-          <div className="mx-auto max-w-4xl text-center">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-sand">
-              Manifesto
-            </p>
-            <h2 className="font-display text-3xl text-antique sm:text-5xl">
-              Marketing não termina no clique.
-            </h2>
-            <DecorativeDivider />
-            <p className="text-lg leading-9 text-antique/72">
-              Em um mercado saturado de promessas vazias, a Palladinos nasce para unir posicionamento, campanha e venda. Não criamos apenas presença digital. Construímos clareza, autoridade e caminhos comerciais para transformar visibilidade em crescimento real.
-            </p>
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-sand">
+                Manifesto
+              </p>
+              <h2 className="font-display text-3xl leading-tight text-antique sm:text-5xl">
+                Marketing não termina no clique.
+              </h2>
+            </div>
+            <div className="border-l border-sand/28 pl-6">
+              <p className="text-lg leading-9 text-antique/74">
+                Em um mercado cheio de promessa vazia, a Palladinos existe para unir posicionamento, campanha e venda. Não é sobre postar por obrigação ou comprar clique por ansiedade. É sobre construir autoridade, gerar demanda e conduzir o interesse até uma decisão comercial.
+              </p>
+            </div>
           </div>
         </Container>
       </section>
 
       <section className="section-pad">
         <Container>
-          <SectionTitle
-            eyebrow="O campo mudou"
-            title="O mercado cresceu. A confiança diminuiu."
-            subtitle="Pequenos e médios negócios não precisam de mais ruído. Precisam de direção, execução e um caminho comercial que sustente o crescimento."
-          />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {problems.map(([title, description]) => (
-              <ProblemCard key={title} title={title} description={description} />
-            ))}
+          <div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
+            <SectionTitle
+              eyebrow="O diagnóstico"
+              title="O problema raramente é falta de esforço."
+              subtitle="Muitos negócios já estão tentando vender online. O que falta é ordem: uma mensagem clara, uma campanha com destino e um processo comercial que não abandone o cliente no meio do caminho."
+            />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {bottlenecks.map((item) => (
+                <ProblemCard
+                  key={item.title}
+                  title={item.title}
+                  description={item.description}
+                />
+              ))}
+            </div>
           </div>
         </Container>
       </section>
 
-      <section className="section-pad bg-earth/25">
+      <section className="section-pad border-y border-sand/10 bg-earth/25">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-            <SectionTitle
-              eyebrow="Solução"
-              title="A Palladinos conecta marketing, vendas e crescimento."
-              subtitle="Nosso método combina posicionamento digital, campanhas orgânicas, tráfego pago e acompanhamento comercial para criar um sistema de crescimento mais consistente para pequenos e médios negócios."
-            />
-            <div className="grid gap-4 sm:grid-cols-3">
-              <ServiceCard title="Posicionamento Digital" description="Organização de presença, mensagem e canais para sua empresa ser entendida com mais clareza." />
-              <ServiceCard title="Campanhas Orgânicas" description="Conteúdo com intenção comercial, autoridade e consistência para preparar o terreno da venda." />
-              <ServiceCard title="Campanhas Pagas" description="Tráfego orientado por público, oferta e acompanhamento de oportunidades." />
-            </div>
-          </div>
-          <div className="mt-10 border border-sand/22 bg-moss/20 p-6 sm:p-8">
-            <p className="font-display text-2xl text-sand">
-              Assessoria e Suporte Comercial incluídos em todos os planos
-            </p>
-            <p className="mt-3 max-w-4xl text-sm leading-7 text-antique/65">
-              O avanço não termina quando o lead chega. A Palladinos acompanha o caminho entre interesse, conversa, proposta e decisão.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-8 border border-sand/16 bg-charcoal/62 p-5 shadow-ember lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:p-8">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-sand">
-                Mapa de soluções
-              </p>
-              <h3 className="mt-4 font-display text-3xl leading-tight text-antique">
-                O tabuleiro completo dos primeiros movimentos.
-              </h3>
-              <p className="mt-5 text-sm leading-7 text-antique/65">
-                O material institucional da Palladinos apresenta as três frentes de entrada para negócios que precisam organizar presença, demanda e venda: posicionamento digital, tráfego pago e social media. Os detalhes editáveis ficam nos planos abaixo, mantendo clareza para o cliente e flexibilidade para evolução comercial.
-              </p>
+              <SectionTitle
+                eyebrow="Sistema Palladinos"
+                title="Primeiro se organiza o reino. Depois se avança."
+                subtitle="A estratégia parte de três frentes de entrada: posicionamento digital, social media e tráfego pago. A diferença está em conectar essas frentes ao suporte comercial, para que o interesse gerado tenha caminho até a venda."
+              />
+              <div className="mt-8 grid gap-4">
+                {operatingPrinciples.map((item) => (
+                  <ServiceCard
+                    key={item.title}
+                    title={item.title}
+                    description={item.description}
+                  />
+                ))}
+              </div>
             </div>
-            <figure className="relative overflow-hidden border border-sand/18 bg-[#111]">
+            <figure className="overflow-hidden border border-sand/18 bg-[#111] shadow-ember">
               <Image
                 src="/images/solucoes-premium.png"
                 alt="Material visual da Palladinos apresentando soluções de posicionamento digital, tráfego pago e social media."
@@ -162,88 +166,70 @@ export default function Home() {
 
       <section className="section-pad" id="planos">
         <Container>
-          <SectionTitle
-            align="center"
-            eyebrow="Planos"
-            title="Escolha o plano ideal para fortalecer o seu reino."
-            subtitle="Todos os planos da Palladinos incluem assessoria e suporte comercial, porque marketing só faz sentido quando ajuda sua empresa a vender mais."
-          />
+          <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-end">
+            <SectionTitle
+              eyebrow="Planos"
+              title="Escolha o movimento certo para o momento do negócio."
+              subtitle="Os planos não são uma prateleira genérica de serviços. Eles representam níveis diferentes de maturidade: organizar presença, construir autoridade, gerar demanda ou unir tudo em uma operação completa."
+            />
+            <div className="border border-sand/18 bg-moss/16 p-6">
+              <p className="font-display text-2xl text-sand">
+                Suporte comercial incluso em todos os planos.
+              </p>
+              <p className="mt-3 text-sm leading-7 text-antique/64">
+                Porque o trabalho não termina quando alguém chama no WhatsApp. A Palladinos acompanha abordagem, clareza de oferta e próximos passos para reduzir desperdício entre interesse e venda.
+              </p>
+            </div>
+          </div>
           <div className="mt-12 grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
             {plans.map((plan) => (
               <PlanCard key={plan.name} plan={plan} />
             ))}
-          </div>
-          <div className="mt-16 border-t border-sand/10 pt-12">
-            <div className="mb-8 max-w-3xl">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.26em] text-sand">
-                Produtos em destaque
-              </p>
-              <h3 className="font-display text-3xl leading-tight text-antique sm:text-4xl">
-                As três primeiras ofertas, com linguagem pronta para decisão.
-              </h3>
-              <p className="mt-5 text-sm leading-7 text-antique/65">
-                Essas artes reforçam a percepção premium dos produtos principais. Os cards acima continuam como fonte editável do site, enquanto as imagens funcionam como material comercial para leitura rápida e compartilhamento visual.
-              </p>
-            </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {productVisuals.map((product) => (
-                <article
-                  key={product.title}
-                  className="group border border-sand/16 bg-[#151515] p-3 transition duration-300 hover:-translate-y-1 hover:border-sand/42 hover:shadow-ember"
-                >
-                  <figure className="overflow-hidden border border-sand/12 bg-charcoal">
-                    <Image
-                      src={product.image}
-                      alt={product.alt}
-                      width={1152}
-                      height={1536}
-                      className="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
-                    />
-                  </figure>
-                  <div className="p-4">
-                    <h4 className="font-display text-xl text-antique">{product.title}</h4>
-                    <Button
-                      href={buildPlanWhatsAppLink(product.planName)}
-                      external
-                      variant="secondary"
-                      className="mt-5 w-full"
-                    >
-                      {product.cta}
-                    </Button>
-                  </div>
-                </article>
-              ))}
-            </div>
           </div>
         </Container>
       </section>
 
       <section className="section-pad border-y border-sand/10 bg-[#151515]">
         <Container>
-          <SectionTitle
-            eyebrow="Diferencial"
-            title="O diferencial está depois do clique."
-            subtitle="Enquanto muitas agências entregam apenas posts, relatórios e anúncios, a Palladinos acompanha o caminho comercial. Todo plano inclui suporte para ajudar sua empresa a transformar interesse em conversa, conversa em proposta e proposta em venda."
-          />
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            <ServiceCard title="Foco em faturamento" description="A estratégia é pensada para aproximar marketing da realidade comercial do negócio." />
-            <ServiceCard title="Suporte próximo" description="Acompanhamento para ajustar abordagem, canais e próximos passos com mais clareza." />
-            <ServiceCard title="Acessível para PMEs" description="Planos objetivos para pequenos e médios negócios que precisam começar com método." />
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <SectionTitle
+                eyebrow="Operação"
+                title="O método por trás da magia."
+                subtitle="A estética é medieval, mas a operação precisa ser objetiva. Cada etapa existe para tirar o negócio do improviso e aproximar marketing da realidade comercial."
+              />
+              <DecorativeDivider />
+              <p className="text-sm leading-7 text-antique/58">
+                O objetivo não é vender ilusão de resultado garantido. É criar um processo mais claro, mensurável e ajustável conforme mercado, oferta e capacidade de atendimento.
+              </p>
+            </div>
+            <div className="grid gap-x-8 gap-y-9 md:grid-cols-2">
+              {process.map(([title, description], index) => (
+                <ProcessStep
+                  key={title}
+                  number={String(index + 1).padStart(2, "0")}
+                  title={title}
+                  description={description}
+                />
+              ))}
+            </div>
           </div>
         </Container>
       </section>
 
       <section className="section-pad">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="border border-sand/18 bg-earth/35 p-8">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.92fr] lg:items-center">
+            <div className="border border-sand/18 bg-earth/32 p-8 sm:p-10">
               <p className="text-xs font-semibold uppercase tracking-[0.26em] text-sand">
-                Jornada do fundador
+                Quem conduz
               </p>
-              <h2 className="mt-4 font-display text-4xl text-antique">Da batalha ao método.</h2>
+              <h2 className="mt-4 font-display text-4xl text-antique">
+                Da batalha ao método.
+              </h2>
               <DecorativeDivider />
               <p className="text-base leading-8 text-antique/70">
-                Gustavo Sofredini iniciou sua jornada no marketing ainda jovem, aprendendo na prática a vender por conteúdo, construir marcas e enfrentar os desafios reais do empreendedorismo. Depois de experiências, quedas e aprendizados em gestão, vendas e posicionamento, nasce a Palladinos: uma assessoria criada para ajudar pequenos e médios negócios a construírem impérios mais fortes, lucrativos e duradouros.
+                Gustavo Sofredini iniciou sua jornada no marketing ainda jovem, aprendendo na prática a vender por conteúdo, construir marcas e enfrentar os desafios reais do empreendedorismo. Depois de experiências, quedas e aprendizados em gestão, vendas e posicionamento, nasce a Palladinos: uma assessoria criada para ajudar pequenos e médios negócios a construírem operações mais fortes, lucrativas e duradouras.
               </p>
             </div>
             <div className="grid gap-4">
@@ -264,36 +250,16 @@ export default function Home() {
         </Container>
       </section>
 
-      <section className="section-pad bg-moss/15">
-        <Container>
-          <SectionTitle
-            align="center"
-            eyebrow="Método"
-            title="O método por trás da magia."
-          />
-          <div className="mt-14 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-            {process.map(([title, description], index) => (
-              <ProcessStep
-                key={title}
-                number={String(index + 1).padStart(2, "0")}
-                title={title}
-                description={description}
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="section-pad">
+      <section className="section-pad bg-moss/12">
         <Container>
           <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionTitle
-              eyebrow="Resultados"
-              title="Resultados construídos com estratégia."
-              subtitle="Indicadores apresentados como referência de case, sem promessa garantida de performance."
+              eyebrow="Prova"
+              title="Resultado não é promessa. É processo."
+              subtitle="O case abaixo é apresentado como referência de aplicação, não como garantia universal. Performance varia conforme mercado, oferta, maturidade comercial e execução."
             />
             <Button href="/resultados" variant="secondary">
-              Ver página de resultados
+              Ver resultados
             </Button>
           </div>
           <CaseCard result={mainCase} />
@@ -304,9 +270,9 @@ export default function Home() {
         <Container>
           <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionTitle
-              eyebrow="Blog"
-              title="Estratégia para ler antes de investir."
-              subtitle="Artigos para pequenos e médios negócios que querem crescer com menos improviso."
+              eyebrow="Leitura estratégica"
+              title="Antes de investir mais, pense melhor."
+              subtitle="O blog sustenta autoridade com temas que conectam posicionamento, campanha e venda."
             />
             <Link className="text-sm uppercase tracking-[0.2em] text-sand" href="/blog">
               Ver blog
@@ -321,8 +287,8 @@ export default function Home() {
       </section>
 
       <CTASection
-        title="Pronto para parar de improvisar e crescer com estratégia?"
-        text="Solicite um diagnóstico e descubra qual plano faz mais sentido para o momento do seu negócio."
+        title="Chega de empilhar ação sem direção."
+        text="Solicite um diagnóstico e entenda qual movimento faz mais sentido agora: organizar presença, fortalecer autoridade, ativar campanhas ou estruturar uma operação completa."
         secondaryLabel="Ver planos"
         secondaryHref="/#planos"
       />
