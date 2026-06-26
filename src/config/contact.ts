@@ -1,6 +1,6 @@
 export const contact = {
   email: "palladinos@gmail.com",
-  whatsappNumber: "5500000000000",
+  whatsappNumber: "5511992105889",
   instagram: "https://instagram.com/palladinos",
   companyName: "Palladinos Assessoria",
 };

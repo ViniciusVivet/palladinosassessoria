@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BlogCard } from "@/components/BlogCard";
 import { Button } from "@/components/Button";
@@ -48,7 +49,15 @@ export default function Home() {
         secondaryHref="/#planos"
       />
 
-      <section className="section-pad border-y border-sand/10 bg-[#171717]" id="sobre">
+      <section className="section-pad relative isolate overflow-hidden border-y border-sand/10 bg-[#171717]" id="sobre">
+        <Image
+          src="/images/background-tempos-antigos.jpeg"
+          alt="Paisagem antiga com castelo ao fundo, usada como atmosfera institucional da Palladinos."
+          fill
+          sizes="100vw"
+          className="-z-20 object-cover opacity-[0.38]"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-charcoal/88 via-charcoal/82 to-charcoal/94" />
         <Container>
           <div className="mx-auto max-w-4xl text-center">
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.28em] text-sand">
@@ -101,6 +110,28 @@ export default function Home() {
             <p className="mt-3 max-w-4xl text-sm leading-7 text-antique/65">
               O avanço não termina quando o lead chega. A Palladinos acompanha o caminho entre interesse, conversa, proposta e decisão.
             </p>
+          </div>
+          <div className="mt-10 grid gap-8 border border-sand/16 bg-charcoal/62 p-5 shadow-ember lg:grid-cols-[0.82fr_1.18fr] lg:items-center lg:p-8">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-sand">
+                Mapa de soluções
+              </p>
+              <h3 className="mt-4 font-display text-3xl leading-tight text-antique">
+                Uma visão direta dos caminhos de crescimento.
+              </h3>
+              <p className="mt-5 text-sm leading-7 text-antique/65">
+                O material institucional da Palladinos organiza as primeiras frentes de atuação: posicionamento digital, tráfego pago e social media. No site, esses serviços aparecem com detalhes nos planos abaixo, sempre conectados ao suporte comercial.
+              </p>
+            </div>
+            <figure className="relative overflow-hidden border border-sand/18 bg-[#111]">
+              <Image
+                src="/images/solucoes.jpeg"
+                alt="Material visual da Palladinos apresentando soluções de posicionamento digital, tráfego pago e social media."
+                width={1134}
+                height={626}
+                className="w-full object-cover"
+              />
+            </figure>
           </div>
         </Container>
       </section>

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/Button";
@@ -19,8 +20,15 @@ export function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-sand/10 bg-charcoal/82 backdrop-blur-xl">
       <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-3" aria-label="Palladinos Assessoria">
-          <span className="grid h-10 w-10 place-items-center border border-sand/45 bg-earth/60 font-display text-lg text-sand transition group-hover:border-sand">
-            P
+          <span className="relative h-11 w-11 overflow-hidden border border-sand/35 bg-earth/60 transition group-hover:border-sand">
+            <Image
+              src="/images/logo-marrom.jpeg"
+              alt=""
+              fill
+              sizes="44px"
+              className="object-cover"
+              priority
+            />
           </span>
           <span>
             <span className="block font-display text-lg leading-none text-antique">

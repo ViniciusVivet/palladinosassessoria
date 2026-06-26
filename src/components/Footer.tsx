@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { DecorativeDivider } from "@/components/DecorativeDivider";
@@ -9,7 +10,18 @@ export function Footer() {
       <Container>
         <div className="grid gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-display text-2xl text-antique">{contact.companyName}</p>
+            <div className="flex items-center gap-4">
+              <div className="relative h-16 w-16 overflow-hidden border border-sand/20">
+                <Image
+                  src="/images/logo-marrom.jpeg"
+                  alt=""
+                  fill
+                  sizes="64px"
+                  className="object-cover"
+                />
+              </div>
+              <p className="font-display text-2xl text-antique">{contact.companyName}</p>
+            </div>
             <p className="mt-4 max-w-md text-sm leading-7 text-antique/62">
               Marketing, vendas e crescimento para pequenos e médios negócios que precisam de direção, método e acompanhamento comercial.
             </p>
