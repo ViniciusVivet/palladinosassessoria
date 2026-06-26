@@ -9,6 +9,35 @@ type PlanCardProps = {
 };
 
 export function PlanCard({ plan }: PlanCardProps) {
+  const usePosterLayout = Boolean(plan.visual && !plan.featured);
+
+  if (usePosterLayout && plan.visual) {
+    return (
+      <article className="group flex h-full flex-col border border-sand/16 bg-[#151515] p-3 transition duration-300 hover:-translate-y-1 hover:border-sand/42 hover:shadow-ember">
+        <figure className="overflow-hidden border border-sand/12 bg-charcoal">
+          <Image
+            src={plan.visual.src}
+            alt={plan.visual.alt}
+            width={1152}
+            height={1536}
+            className="w-full object-cover transition duration-500 group-hover:scale-[1.015]"
+          />
+        </figure>
+        {plan.note ? (
+          <p className="px-3 pt-4 text-xs leading-6 text-antique/52">{plan.note}</p>
+        ) : null}
+        <Button
+          href={buildPlanWhatsAppLink(plan.name)}
+          external
+          className="mt-4 w-full"
+          variant="secondary"
+        >
+          {plan.cta}
+        </Button>
+      </article>
+    );
+  }
+
   return (
     <article
       className={cn(
