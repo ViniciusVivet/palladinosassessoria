@@ -12,7 +12,7 @@ import { ProblemCard } from "@/components/ProblemCard";
 import { ProcessStep } from "@/components/ProcessStep";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ServiceCard } from "@/components/ServiceCard";
-import { contact } from "@/config/contact";
+import { buildPlanWhatsAppLink, contact } from "@/config/contact";
 import { plans } from "@/data/plans";
 import { posts } from "@/data/posts";
 import { resultCases } from "@/data/results";
@@ -34,6 +34,30 @@ const process = [
   ["Execução", "Criação, publicação, campanha e organização dos canais de conversão."],
   ["Otimização", "Acompanhamento de sinais, ajustes e melhoria contínua das ações."],
   ["Suporte comercial", "Apoio para transformar interesse em conversa, proposta e venda."],
+];
+
+const productVisuals = [
+  {
+    planName: "Posicionamento",
+    title: "Posicionamento Digital",
+    image: "/images/produto-posicionamento-digital.png",
+    alt: "Arte comercial do plano Posicionamento Digital da Palladinos, com descrição e valor de R$ 500.",
+    cta: "Quero posicionar minha marca",
+  },
+  {
+    planName: "Tráfego Pago",
+    title: "Tráfego Pago",
+    image: "/images/produto-trafego-pago.png",
+    alt: "Arte comercial do plano Tráfego Pago da Palladinos, com descrição e valor de R$ 1.500.",
+    cta: "Quero campanhas pagas",
+  },
+  {
+    planName: "Social Media",
+    title: "Social Media",
+    image: "/images/produto-social-media.png",
+    alt: "Arte comercial do plano Social Media da Palladinos, com descrição e valor de R$ 1.500.",
+    cta: "Quero fortalecer minhas redes",
+  },
 ];
 
 export default function Home() {
@@ -117,18 +141,18 @@ export default function Home() {
                 Mapa de soluções
               </p>
               <h3 className="mt-4 font-display text-3xl leading-tight text-antique">
-                Uma visão direta dos caminhos de crescimento.
+                O tabuleiro completo dos primeiros movimentos.
               </h3>
               <p className="mt-5 text-sm leading-7 text-antique/65">
-                O material institucional da Palladinos organiza as primeiras frentes de atuação: posicionamento digital, tráfego pago e social media. No site, esses serviços aparecem com detalhes nos planos abaixo, sempre conectados ao suporte comercial.
+                O material institucional da Palladinos apresenta as três frentes de entrada para negócios que precisam organizar presença, demanda e venda: posicionamento digital, tráfego pago e social media. Os detalhes editáveis ficam nos planos abaixo, mantendo clareza para o cliente e flexibilidade para evolução comercial.
               </p>
             </div>
             <figure className="relative overflow-hidden border border-sand/18 bg-[#111]">
               <Image
-                src="/images/solucoes.jpeg"
+                src="/images/solucoes-premium.png"
                 alt="Material visual da Palladinos apresentando soluções de posicionamento digital, tráfego pago e social media."
-                width={1134}
-                height={626}
+                width={1680}
+                height={945}
                 className="w-full object-cover"
               />
             </figure>
@@ -148,6 +172,48 @@ export default function Home() {
             {plans.map((plan) => (
               <PlanCard key={plan.name} plan={plan} />
             ))}
+          </div>
+          <div className="mt-16 border-t border-sand/10 pt-12">
+            <div className="mb-8 max-w-3xl">
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.26em] text-sand">
+                Produtos em destaque
+              </p>
+              <h3 className="font-display text-3xl leading-tight text-antique sm:text-4xl">
+                As três primeiras ofertas, com linguagem pronta para decisão.
+              </h3>
+              <p className="mt-5 text-sm leading-7 text-antique/65">
+                Essas artes reforçam a percepção premium dos produtos principais. Os cards acima continuam como fonte editável do site, enquanto as imagens funcionam como material comercial para leitura rápida e compartilhamento visual.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-3">
+              {productVisuals.map((product) => (
+                <article
+                  key={product.title}
+                  className="group border border-sand/16 bg-[#151515] p-3 transition duration-300 hover:-translate-y-1 hover:border-sand/42 hover:shadow-ember"
+                >
+                  <figure className="overflow-hidden border border-sand/12 bg-charcoal">
+                    <Image
+                      src={product.image}
+                      alt={product.alt}
+                      width={1152}
+                      height={1536}
+                      className="aspect-[3/4] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                    />
+                  </figure>
+                  <div className="p-4">
+                    <h4 className="font-display text-xl text-antique">{product.title}</h4>
+                    <Button
+                      href={buildPlanWhatsAppLink(product.planName)}
+                      external
+                      variant="secondary"
+                      className="mt-5 w-full"
+                    >
+                      {product.cta}
+                    </Button>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
