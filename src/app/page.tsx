@@ -181,10 +181,13 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-2 xl:grid-cols-4">
-            {plans.map((plan) => (
+          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            {plans.slice(0, 3).map((plan) => (
               <PlanCard key={plan.name} plan={plan} />
             ))}
+          </div>
+          <div className="mx-auto mt-6 max-w-md">
+            <PlanCard plan={plans[3]} />
           </div>
         </Container>
       </section>

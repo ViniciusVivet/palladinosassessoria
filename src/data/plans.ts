@@ -29,8 +29,8 @@ export const plans: Plan[] = [
     ],
     cta: "Quero posicionar minha marca",
     visual: {
-      src: "/images/produto-posicionamento-digital.png",
-      alt: "Arte comercial do plano Posicionamento Digital da Palladinos.",
+      src: "/images/plano-posicionamento-bg.png",
+      alt: "Paisagem clássica com montanhas usada para representar o plano Posicionamento Digital.",
     },
   },
   {
@@ -49,8 +49,8 @@ export const plans: Plan[] = [
     note: "O investimento em mídia não está incluso no valor do plano.",
     cta: "Quero campanhas pagas",
     visual: {
-      src: "/images/produto-trafego-pago.png",
-      alt: "Arte comercial do plano Tráfego Pago da Palladinos.",
+      src: "/images/plano-trafego-bg.png",
+      alt: "Paisagem clássica com céu dramático usada para representar o plano Tráfego Pago.",
     },
   },
   {
@@ -68,8 +68,8 @@ export const plans: Plan[] = [
     ],
     cta: "Quero fortalecer minhas redes",
     visual: {
-      src: "/images/produto-social-media.png",
-      alt: "Arte comercial do plano Social Media da Palladinos.",
+      src: "/images/plano-social-bg.png",
+      alt: "Paisagem clássica com vale iluminado usada para representar o plano Social Media.",
     },
   },
   {

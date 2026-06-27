@@ -27,7 +27,7 @@ export function Hero({
     <section className="relative isolate overflow-hidden pt-32">
       <div className="absolute inset-0 -z-20 bg-page-texture" />
       <div className="absolute inset-0 -z-10 opacity-[0.05] [background-image:linear-gradient(rgba(200,184,154,.45)_1px,transparent_1px),linear-gradient(90deg,rgba(200,184,154,.45)_1px,transparent_1px)] [background-size:42px_42px]" />
-      <Container className="grid min-h-[calc(100vh-5rem)] items-center gap-12 py-12 lg:grid-cols-[1.02fr_0.98fr] lg:py-16">
+      <Container className="grid min-h-[min(920px,calc(100vh-5rem))] items-center gap-12 py-12 lg:grid-cols-[1.02fr_0.98fr] lg:py-16">
         <div>
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.3em] text-sand">
             {eyebrow}
